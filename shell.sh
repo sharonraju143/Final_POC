@@ -7,7 +7,7 @@ cat << EOF > ~/.aws/config
 [default]
 region=us-east-2
 EOF
-
+chmod +x DynamicInventory.py
 # Run DynamicInventory.py with --list option
 ./DynamicInventory.py --list
 
