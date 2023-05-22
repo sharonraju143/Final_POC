@@ -6,7 +6,7 @@
   tasks:
     - name: Get instance facts
       ec2_instance_facts:
-        region: your_region
+        region: us-east-2
       register: instance_facts
 
     - name: Add instances to inventory
