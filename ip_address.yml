@@ -1,0 +1,19 @@
+---
+- name: Fetch IP addresses of instances in a specific region
+  hosts: localhost
+  gather_facts: False
+
+  tasks:
+    - name: Get instance facts
+      ec2_instance_facts:
+        region: us-east-2
+      register: instance_facts
+
+    - name: Add instances to inventory
+      add_host:
+        hostname: "{{ item.public_ip_address }}"
+        groups: aws_instances
+        ansible_host: "{{ item.public_ip_address }}"
+        ansible_user: ubuntu
+        ansible_ssh_private_key_file: /home/ubuntu/k8s.pem
+      with_items: "{{ instance_facts.instances }}"
