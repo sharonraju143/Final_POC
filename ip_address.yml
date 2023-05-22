@@ -6,7 +6,7 @@
   tasks:
     - name: Get instance facts
       ec2_instance_facts:
-        region: us-east-2
+        region: your_region
       register: instance_facts
 
     - name: Add instances to inventory
@@ -17,3 +17,4 @@
         ansible_user: ubuntu
         ansible_ssh_private_key_file: /home/ubuntu/k8s.pem
       with_items: "{{ instance_facts.instances }}"
+
