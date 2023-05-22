@@ -11,10 +11,11 @@
 
     - name: Add instances to inventory
       add_host:
-        hostname: "{{ item.public_ip_address }}"
+        hostname: "{{ item.network_interfaces[0].association.public_ip }}"
         groups: aws_instances
-        ansible_host: "{{ item.public_ip_address }}"
+        ansible_host: "{{ item.network_interfaces[0].association.public_ip }}"
         ansible_user: ubuntu
         ansible_ssh_private_key_file: /home/ubuntu/k8s.pem
       with_items: "{{ instance_facts.instances }}"
+
 
