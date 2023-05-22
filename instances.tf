@@ -7,7 +7,7 @@ resource "aws_instance" "Kubernetes_Master" {
   key_name               = var.key_name
 
   tags = {
-    Name = "Kubernetes_Master
+    Name = "Kubernetes_Master"
   }
 
 }
@@ -21,7 +21,7 @@ resource "aws_instance" "Kubernetes_Workers" {
   key_name               = var.key_name
   
   tags = {
-    Name = "Kubernetes_Workers
+    Name = "Kubernetes_Workers"
   }
 
 }
