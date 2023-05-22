@@ -1,4 +1,4 @@
-resource "aws_instance" "kubernetes_Master" {
+resource "aws_instance" "Kubernetes_Master" {
   count                  = 1
   ami                    = var.kubernetes_ami
   instance_type          = var.master_instance_type
@@ -7,13 +7,12 @@ resource "aws_instance" "kubernetes_Master" {
   key_name               = var.key_name
 
   tags = {
-    Name = "Kubernetes_Servers"
-    Type = "Kubernetes_Master"
+    Name = "Kubernetes_Master
   }
 
 }
 
-resource "aws_instance" "kubernetes_Workers" {
+resource "aws_instance" "Kubernetes_Workers" {
   count                  = 2
   ami                    = var.kubernetes_ami
   instance_type          = var.worker_instance_type
@@ -22,8 +21,7 @@ resource "aws_instance" "kubernetes_Workers" {
   key_name               = var.key_name
   
   tags = {
-    Name = "Kubernetes_Servers"
-    Type = "Kubernetes_Worker"
+    Name = "Kubernetes_Workers
   }
 
 }
